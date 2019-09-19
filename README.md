@@ -1,2 +1,3 @@
-# canova
-mono-repo for various opensource projects for municipalities in Canada
+# CANOVA
+
+Big Data, Analytics and Machine Learning reference architectures to accelerate digital transformation in Canadian Municipalities
