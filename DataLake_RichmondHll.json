@@ -1,0 +1,12 @@
+{
+    "Resources": {
+        "maeSGeoloationIngestionRichmondHill": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {} 
+		},
+		"maeSAssetIngestionRichmondHill": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {}
+        }
+    }
+}
