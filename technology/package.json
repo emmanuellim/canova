@@ -1,0 +1,25 @@
+{
+  "name": "canovatechnology",
+  "version": "1.0.0",
+  "description": "Reference Technology Architecture for Canadian Municipalities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/emmanuellim/canova.git"
+  },
+  "keywords": [
+    "togaf",
+    "technology-architecture",
+    "canada",
+    "municipality"
+  ],
+  "author": "Emmanuel Lim, Rushi Shah",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/emmanuellim/canova/issues"
+  },
+  "homepage": "https://github.com/emmanuellim/canova#readme"
+}
