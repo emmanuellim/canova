@@ -1,0 +1,11 @@
+{
+  "name": "canovasecurity",
+  "version": "1.0.0",
+  "description": "security architecture for canova",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "emmanuel lim",
+  "license": "Apache-2.0"
+}
