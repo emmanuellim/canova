@@ -1,0 +1,61 @@
+"DataLakeKey" : {
+  "Type" : "AWS::KMS::Key",
+  "Properties" : {
+    "Description" : "This is a Customer Managed CMK that is used to encrypt any objects in any bucket of the data lake.",
+	"Enabled" : "true",
+	"EnableKeyRotation" : "true",
+	"PendingWindowInDays" : "15",
+	"KeyUsage" : "ENCRYPT_DECRYPT",
+	"Tag" {
+		"Key" : "DataLake",
+		"Value" : "101"
+	},
+	"KeyPolicy" : {
+      "Version": "2012-10-17",
+      "Id": "key-default-1",
+      "Statement": [
+        {
+          "Sid": "Enable IAM User Permissions",
+          "Effect": "Allow",
+          "Principal": {"AWS": "arn:aws:iam::388209880358:root"},
+          "Action": "kms:*",
+          "Resource": "*"
+        }, 
+        {
+          "Sid": "Allow administration of the key",
+          "Effect": "Allow",
+          "Principal": { "AWS": "arn:aws:iam::388209880358:user/Alice" },
+          "Action": [
+            "kms:Create*",
+            "kms:Describe*",
+            "kms:Enable*",
+            "kms:List*",
+            "kms:Put*",
+            "kms:Update*",
+            "kms:Revoke*",
+            "kms:Disable*",
+            "kms:Get*",
+            "kms:Delete*",
+            "kms:ScheduleKeyDeletion",
+            "kms:CancelKeyDeletion"
+          ],
+          "Resource": "*"
+        },
+        {
+          "Sid": "Allow use of the key",
+          "Effect": "Allow",
+          "Principal": { "AWS": "arn:aws:iam::123456789012:user/Bob" },
+          "Action": [
+            "kms:DescribeKey",
+            "kms:Encrypt",
+            "kms:Decrypt",
+            "kms:ReEncrypt*",
+            "kms:GenerateDataKey",
+            "kms:GenerateDataKeyWithoutPlaintext"
+          ], 
+          "Resource": "*"
+        }    
+      ]
+    }
+  }
+}
