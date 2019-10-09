@@ -1,0 +1,277 @@
+{
+	"AWSTemplateFormatVersion" : "2010-09-09",
+	
+	"Description" : "AWS CloudFormation Template for MAEStream: MAEStream is a revenue protection solution for utilities supply and distribution bodies. This template is for municipality level deployment.",
+	
+	"Parameters" : {
+		"MunicipalityName" : {
+			"Type" : "String",
+			"MaxLength" : "20",
+			"MinLength" : "3",
+			"AllowedPattern" : "[a-zA-Z]*",
+			"ConstraintDescription" : "must only contain letters (uppercase and lowercase).",
+			"Description" : "Name of the municipality the stack is being deployed for."
+		},
+		"ProvinceName" : {
+			"Type" : "String",
+			"MaxLength" : "2",
+			"MinLength" : "2",
+			"AllowedValues" : ["NS","PE","NB","QC","ON","NL","MB","SK","AB","BC"],
+			"ConstraintDescription" : "must only contain two uppercase letters.",
+			"Description" : "Province abbreviation of the province the municipality is part of."
+		}
+	}
+	
+    "Resources" : {
+        "MAESGeolocIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesGeoLocIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+		}
+	},
+		"MAESAssetIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesAssetIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESDistriRouteIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesDistriRouteIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESWorkOrderIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesWorkOrderIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESFlowMeterIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesFlowMeterIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESFlowReadingIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesFlowReadingIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESDMAIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesDMAIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESAddressIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesAddressIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESConsumptionMeterIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesConsumptionMeterIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESConsumptionReadingIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesConsumptionReadingIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESConsumptionReadingIngTimeSeriesBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesConsumptionReadingTimeSeries", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESBillTimeSeriesBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesBillTimeSeries", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"MAESBillingIngBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+			"BucketName" 	: "Fn::Join" :  [ "-", [ "maesBillingIng", "Ref" : "MunicipalityName","Ref" : "ProvinceName"] ],
+			"AccessControl" : "BucketOwnerFullControl",
+			"BucketEncryption": {
+			"ServerSideEncryptionConfiguration": [
+					{
+					"ServerSideEncryptionByDefault": {
+					"KMSMasterKeyID" : "YOUR KMS KEY ARN",
+					"SSEAlgorithm": "aws:kms"
+					}
+				}
+			]	
+			}
+			}
+        },
+		"DataLakeBucketPolicy" : {
+			"Type" : "AWS::S3::BucketPolicy",
+			"Version": "2012-10-17",
+			"Properties" : {
+				"Bucket" : [
+							"{"Ref" : "MAESGeolocIngBucket"}","{"Ref" : "MAESAssetIngBucket"}","{"Ref" : "MAESDistriRouteIngBucket"}","{"Ref" : "MAESWorkOrderIngBucket"}",
+							"{"Ref" : "MAESFlowMeterIngBucket"}","{"Ref" : "MAESFlowReadingIngBucket"}","{"Ref" : "MAESDMAIngBucket"}","{"Ref" : "MAESAddressIngBucket"}",
+							"{"Ref" : "MAESConsumptionMeterIngBucket"}","{"Ref" : "MAESConsumptionReadingIngBucket"}","{"Ref" : "MAESConsumptionReadingIngTimeSeriesBucket"}","{"Ref" : "MAESBillTimeSeriesBucket"}","{"Ref" : "MAESBillingIngBucket"}"
+							],
+				"Statement": [
+				{
+					"Effect": "Allow",
+					"Principal": {
+					"AWS": "arn:aws:iam::Account-ID:Role/ProcessLambdaExecution"
+					},
+					"Action": [
+					"s3:GetObject",
+					"s3:PutObject",
+					"s3:GetBucketLocation",
+					"s3:ListBucket"					
+					],
+					"Resource": [
+					"arn:aws:s3:::{ "Ref" : "MunicipalityName" }/*"
+					]
+				}
+				]			
+			}			
+		} 
+		
+    }
+}
