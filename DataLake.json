@@ -245,5 +245,72 @@
 			}
         }
 		
+	},
+	"Outputs" : {
+		"MAESGeolocIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESGeolocIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-GeolocIng" }}
+		},
+		"MAESAssetIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESAssetIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-AssetIng" }}
+		},
+		"MAESDistriRouteIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESDistriRouteIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-DistriRouteIng" }}
+		},
+		"MAESWorkOrderIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESWorkOrderIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-WorkOrderIng" }}
+		},
+		"MAESFlowMeterIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESFlowMeterIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-FlowMeterIng" }}
+		},
+		"MAESFlowReadingIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESFlowReadingIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-FlowReadingIng" }}
+		},
+		"MAESDMAIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESDMAIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-DMAIng" }}
+		},
+		"MAESAddressIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESAddressIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-AddressIng" }}
+		},
+		"MAESConsumptionMeterIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESConsumptionMeterIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-ConsumptionMeterIng" }}
+		},
+		"MAESConsumptionReadingIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESConsumptionReadingIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-ConsumptionReadingIng" }}
+		},
+		"MAESConsumptionReadingIngTimeSeriesBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESConsumptionReadingIngTimeSeriesBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-ConsumptionReadingIngTimeSeries" }}
+		},
+		"MAESBillTimeSeriesBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESBillTimeSeriesBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-BillTimeSeries" }}
+		},
+		"MAESBillingIngBucket" : {
+		"Description" : "Information about the value",
+		"Value" : { "Ref" : "MAESBillingIngBucket" },
+		"Export" : {"Name" : {"Fn::Sub": "${AWS::StackName}-MAESBillingIng" }}
+		}
 	}
 }
